@@ -4,7 +4,7 @@ import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
 import { role, teachersData } from "@/lib/data";
 import prisma from "@/lib/prisma";
-import { Teacher, Subject, Class } from "@prisma/client";
+import { Teacher, Subject, Class, Prisma } from "@/generated/prisma";
 import Image from "next/image";
 import Link from "next/link";
 import { ITEM_PER_PAGE } from "@/lib/settings";
@@ -101,6 +101,7 @@ const renderRow = (item: TeacherList) => (
     </td>
   </tr>
 );
+ 
 const TeacherListPage = async ({searchParams}: {searchParams: { [key: string]: string | undefined };
 }) => {
 
@@ -108,8 +109,39 @@ const TeacherListPage = async ({searchParams}: {searchParams: { [key: string]: s
 
   const p = page ? parseInt(page) : 1;
 
+
+
+  // URL PARAMS CONDITIONS
+
+  const query: Prisma.TeacherWhereInput = {}
+
+  if(queryParams){
+    for(const [key,value] of Object.entries(queryParams))
+      if(value !== undefined){
+      switch(key){
+        case "classId": 
+        {
+          query.lesson = {
+          some:{
+            classId: parseInt(value)
+            },
+          };
+          break;
+        };
+        case "search":
+            query.name = {contains:value, mode:"insensitive"}
+        default:
+          break
+      }
+    }
+  }
+
+
+
+
   const [data, count] = await prisma.$transaction([
   prisma.teacher.findMany({
+    where: Object.keys(query).length > 0 ? query : undefined,
     include: {
       subjects: true,
       classes: true
@@ -117,10 +149,11 @@ const TeacherListPage = async ({searchParams}: {searchParams: { [key: string]: s
     take: ITEM_PER_PAGE,
     skip: ITEM_PER_PAGE * (p - 1)
   }),
-  prisma.teacher.count()
+  prisma.teacher.count({
+    where: Object.keys(query).length > 0 ? query : undefined,
+  })
   ])
 
-  console.log(count)
 
 
 
