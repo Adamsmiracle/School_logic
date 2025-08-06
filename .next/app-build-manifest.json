@@ -11,11 +11,11 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(dashboard)/list/students/[id]/page": [
+    "/(dashboard)/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(dashboard)/list/students/[id]/page.css",
-      "static/chunks/app/(dashboard)/list/students/[id]/page.js"
+      "static/css/app/(dashboard)/admin/page.css",
+      "static/chunks/app/(dashboard)/admin/page.js"
     ],
     "/(dashboard)/layout": [
       "static/chunks/webpack.js",
@@ -27,36 +27,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(dashboard)/list/teachers/page.js"
     ],
-    "/(dashboard)/list/students/page": [
+    "/(dashboard)/list/exams/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/list/students/page.js"
+      "static/chunks/app/(dashboard)/list/exams/page.js"
     ],
-    "/(dashboard)/list/teachers/[id]/page": [
+    "/(dashboard)/list/events/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(dashboard)/list/teachers/[id]/page.css",
-      "static/chunks/app/(dashboard)/list/teachers/[id]/page.js"
+      "static/chunks/app/(dashboard)/list/events/page.js"
     ],
-    "/(dashboard)/list/parents/page": [
+    "/(dashboard)/list/announcements/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/list/parents/page.js"
-    ],
-    "/(dashboard)/list/subjects/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/list/subjects/page.js"
-    ],
-    "/(dashboard)/list/classes/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/list/classes/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/(dashboard)/list/announcements/page.js"
     ]
   }
 }

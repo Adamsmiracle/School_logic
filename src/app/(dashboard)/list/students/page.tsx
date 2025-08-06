@@ -101,7 +101,7 @@ const StudentListPage = async ({searchParams}: {searchParams: { [key: string]: s
       switch(key){
         case "teacherId":
         query.class = {
-          lesson: {
+          lessons: {
             some: {
               teacherId: value
             },

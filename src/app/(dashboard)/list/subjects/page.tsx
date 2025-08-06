@@ -89,6 +89,7 @@ const SubjectListPage = async ({searchParams}: {searchParams: { [key: string]: s
     where: Object.keys(query).length > 0 ? query : undefined,
   })
   ])
+  
   return (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
       {/* TOP */}

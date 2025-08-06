@@ -1,6 +1,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -170,8 +171,8 @@ model Event {
   id          Int @id @default(autoincrement())
   title       String
   description String
-  startDate   DateTime
-  endDate     DateTime
+  startTime   DateTime
+  endTime     DateTime
 
   classId     Int?
   class       Class? @relation(fields: [classId], references: [id])

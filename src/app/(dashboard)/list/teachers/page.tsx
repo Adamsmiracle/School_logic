@@ -121,15 +121,16 @@ const TeacherListPage = async ({searchParams}: {searchParams: { [key: string]: s
       switch(key){
         case "classId": 
         {
-          query.lesson = {
+          query.lessons = {
           some:{
             classId: parseInt(value)
             },
           };
           break;
-        };
+        }
         case "search":
             query.name = {contains:value, mode:"insensitive"}
+            break
         default:
           break
       }
